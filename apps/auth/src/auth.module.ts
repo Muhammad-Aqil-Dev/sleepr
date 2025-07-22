@@ -12,13 +12,13 @@ import * as  Joi from 'joi';
     LoggerModule,
     ConfigModule.forRoot({
           isGlobal: true,
-          envFilePath: 'apps/auth/.env', // 👈 Add this line
+          envFilePath: 'apps/auth/.env', 
     
           validationSchema: Joi.object({
             MONGODB_URI: Joi.string().required(),
             JWT_SECRET:Joi.string().required(),
             JWT_Expiration:Joi.string().required(),
-            PORT: Joi.number().required(), // 👈 Add this line
+            PORT: Joi.number().required(), 
           })
         }),
     JwtModule.registerAsync({

@@ -17,7 +17,8 @@ import * as Joi from 'joi';
       envFilePath: 'apps/reservations/.env', // 👈 Add this line
 
       validationSchema: Joi.object({
-        MONGODB_URI: Joi.string().required()
+        MONGODB_URI: Joi.string().required(),
+        PORT:Joi.number().required()
       })
     }),
   ],
