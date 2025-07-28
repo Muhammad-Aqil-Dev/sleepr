@@ -13,16 +13,16 @@ import { JwtStrategy } from './strategies/jwt.strategy';
     UsersModule,
     LoggerModule,
     ConfigModule.forRoot({
-          isGlobal: true,
-          envFilePath: 'apps/auth/.env', 
-    
-          validationSchema: Joi.object({
-            MONGODB_URI: Joi.string().required(),
-            JWT_SECRET:Joi.string().required(),
-            JWT_Expiration:Joi.string().required(),
-            PORT: Joi.number().required(), 
-          })
-        }),
+      isGlobal: true,
+      // envFilePath: 'apps/auth/.env', 
+
+      validationSchema: Joi.object({
+        MONGODB_URI: Joi.string().required(),
+        JWT_SECRET: Joi.string().required(),
+        JWT_Expiration: Joi.string().required(),
+        PORT: Joi.number().required(),
+      })
+    }),
     JwtModule.registerAsync({
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
@@ -33,6 +33,6 @@ import { JwtStrategy } from './strategies/jwt.strategy';
       })
     })],
   controllers: [AuthController],
-  providers: [AuthService,LocalStrategy,JwtStrategy]
+  providers: [AuthService, LocalStrategy, JwtStrategy]
 })
 export class AuthModule { }

@@ -15,26 +15,26 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     LoggerModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: 'apps/reservations/.env', // 👈 Add this line
+      // envFilePath: 'apps/reservations/.env', // 👈 Add this line
 
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
-        PORT:Joi.number().required()
+        PORT: Joi.number().required()
       })
     }),
     ClientsModule.registerAsync([
       {
-        name:AUTH_SERVICE,
-        useFactory:(configService:ConfigService)=>({
-          transport:Transport.TCP,
-          options:{
-            host:configService.get('AUTH_HOST'),
-            port:configService.get("AUTH_PORT")
+        name: AUTH_SERVICE,
+        useFactory: (configService: ConfigService) => ({
+          transport: Transport.TCP,
+          options: {
+            host: configService.get('AUTH_HOST'),
+            port: configService.get("AUTH_PORT")
           }
         }),
-        inject:[ConfigService]
+        inject: [ConfigService]
       }
-  ])
+    ])
   ],
   controllers: [ReservationsController],
   providers: [ReservationsService, ReservationRepository],
