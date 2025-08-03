@@ -12,6 +12,9 @@ export class CardDto {
     exp_year: number;
 
     @IsCreditCard()
-    number: string;
+    number?: string;
+
+    // @IsString()
+    // token: string;
 
 }

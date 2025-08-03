@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 import { CardDto } from "./card.dto";
-import { IsDefined, IsNotEmptyObject, IsNumber, ValidateNested } from "class-validator";
+import { IsDefined, IsNotEmptyObject, IsNumber, IsString, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
 
 export class CreateChargeDto {
@@ -9,6 +9,7 @@ export class CreateChargeDto {
     @ValidateNested()
     @Type(() => CardDto)
     card: CardDto;  //Stripe.PaymentMethodCreateParams.Card,
+
     @IsNumber()
     amount: number
 }

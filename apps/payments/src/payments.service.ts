@@ -18,16 +18,21 @@ export class PaymentsService {
   }
 
   async createCharge({ card, amount }: CreateChargeDto) {
-    const paymentMethod = await this.stripe.paymentMethods.create({
-      type: 'card',
-      card,
-    });
+    // const paymentMethod = await this.stripe.paymentMethods.create({
+    //   type: 'card',
+    //   card,
+    // });
 
     const paymentIntent = await this.stripe.paymentIntents.create({
-      payment_method: paymentMethod.id,
+      payment_method: "pm_card_visa",// paymentMethod.id,
       amount: amount * 100,
-      payment_method_types: ['cards'],
-      currency: 'usd'
+      // payment_method_types: ['cards'],
+      currency: 'usd',
+      confirm: true,
+      automatic_payment_methods: {
+        enabled: true,
+        allow_redirects: 'never'
+      }
     })
 
     return paymentIntent;

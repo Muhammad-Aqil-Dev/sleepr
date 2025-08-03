@@ -1,21 +1,20 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { AbstractDocument } from "default/common";
 
-@Schema({versionKey:false})
+@Schema({ versionKey: false })
 export class ReservationDocument extends AbstractDocument {
     @Prop()
-    timestamp:Date;
+    timestamp: Date;
     @Prop()
     startDate: Date;
     @Prop()
-    endDate:Date;
+    endDate: Date;
     @Prop()
-    userId:string;
+    userId: string;
+
     @Prop()
-    placeId:string;
-    @Prop()
-    invoiceId:string;
+    invoiceId: string;
 
 }
 
-export const ReservationSchema=SchemaFactory.createForClass(ReservationDocument)
+export const ReservationSchema = SchemaFactory.createForClass(ReservationDocument)
