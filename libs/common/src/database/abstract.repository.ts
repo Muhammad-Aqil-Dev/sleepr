@@ -5,7 +5,7 @@ import { AbstractDocument } from './abstract.schema';
 export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   protected abstract readonly logger: Logger;
 
-  constructor(protected readonly model: Model<TDocument>) {}
+  constructor(protected readonly model: Model<TDocument>) { }
 
   async create(document: Omit<TDocument, '_id'>): Promise<TDocument> {
     const createdDocument = new this.model({
@@ -29,9 +29,9 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
   async findOneAndUpdate(
     filterQuery: FilterQuery<TDocument>,
     update: UpdateQuery<TDocument>,
-  ) {
+  ): Promise<TDocument> {
     const document = await this.model.findOneAndUpdate(filterQuery, update, {
-      lean: true,
+      lean: false,
       new: true,
     });
 
@@ -43,11 +43,11 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     return document;
   }
 
-  async find(filterQuery: FilterQuery<TDocument>) {
-    return this.model.find(filterQuery, {}, { lean: true });
+  async find(filterQuery: FilterQuery<TDocument>): Promise<TDocument[]> {
+    return this.model.find(filterQuery, {}, { lean: true }) as unknown as TDocument[];
   }
 
-  async findOneAndDelete(filterQuery: FilterQuery<TDocument>) {
-    return this.model.findOneAndDelete(filterQuery, { lean: true });
+  async findOneAndDelete(filterQuery: FilterQuery<TDocument>): Promise<TDocument> {
+    return this.model.findOneAndDelete(filterQuery, { lean: true }) as unknown as TDocument;
   }
 }
