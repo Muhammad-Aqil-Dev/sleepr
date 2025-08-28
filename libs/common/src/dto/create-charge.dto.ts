@@ -1,4 +1,3 @@
-import Stripe from "stripe";
 import { CardDto } from "./card.dto";
 import { IsDefined, IsNotEmptyObject, IsNumber, IsString, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";

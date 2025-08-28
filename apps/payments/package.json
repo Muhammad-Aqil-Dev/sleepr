@@ -11,6 +11,6 @@
   "license": "ISC",
   "packageManager": "pnpm@10.13.1",
   "dependencies": {
-    "stripe": "^18.4.0"
+    "stripe": "18.4.0"
   }
 }
