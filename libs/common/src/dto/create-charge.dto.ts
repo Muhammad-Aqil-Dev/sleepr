@@ -9,6 +9,7 @@ export class CreateChargeDto {
     @Type(() => CardDto)
     card: CardDto;  //Stripe.PaymentMethodCreateParams.Card,
 
+
     @IsNumber()
     amount: number
 
