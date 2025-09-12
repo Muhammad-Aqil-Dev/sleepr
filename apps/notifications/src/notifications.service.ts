@@ -16,8 +16,8 @@ export class NotificationsService {
         clientSecret: configService.get("GOOGLE_OAUTH_CLIENT_SECRET"),
         refreshToken: configService.get("GOOGLE_OAUTH_REFRESH_TOKEN"),
       },
-      connectionTimeout: 15000, // 15s
-      greetingTimeout: 15000,   // 15s
+      connectionTimeout: 60000, // 60s
+      greetingTimeout: 60000,   // 60s
 
     })
 
@@ -26,12 +26,17 @@ export class NotificationsService {
   async notifyEmail({ email, text }: NotifyEmailDto) {
 
     console.log("notifyEmail", email)
-    await this.transporter.sendMail({
-      from: this.configService.get('SMTP_USER'),
-      to: email,
-      subject: "Sleepr Notification",
-      text: text
-    })
+    try {
+      await this.transporter.sendMail({
+        from: this.configService.get('SMTP_USER'),
+        to: email,
+        subject: "Sleepr Notification",
+        text: text
+      })
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 }
