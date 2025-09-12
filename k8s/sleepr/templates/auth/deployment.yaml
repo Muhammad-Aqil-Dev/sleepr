@@ -23,3 +23,18 @@ spec:
               secretKeyRef:
                 name: mongodb
                 key: connectionString
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: jwt
+                key: jwtSecret
+          - name: JWT_Expiration
+            value: '3600'
+          - name: TCP_PORT
+            value: '3002'
+          - name: PORT
+            value: '3003'
+        port:
+          - containerPort: 3002
+          - containerPort: 3003
+

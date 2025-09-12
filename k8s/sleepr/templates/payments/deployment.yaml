@@ -18,8 +18,16 @@ spec:
       - image: asia-southeast1-docker.pkg.dev/sleepr-468102/payments/production
         name: payments
         env:
-          - name: MONGODB_URI
+          - name: STRIPE_SECRET_KEY
             valueFrom:
               secretKeyRef:
-                name: mongodb
-                key: connectionString
+                name: stripe
+                key: apiKey
+          - name: PORT
+            value: '3001'
+          - name: NOTIFCATIONS_HOST
+            value: notifications
+          - name: NOTIFCATIONS_PORT
+            value: '3000'
+        port:
+          - containerPort: 3000
