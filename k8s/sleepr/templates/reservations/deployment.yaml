@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: reservation
-  name: reservation
+    app: reservations
+  name: reservations
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: reservation
+      app: reservations
   template:
     metadata:
       labels:
-        app: reservation
+        app: reservations
     spec:
       containers:
       - image: asia-southeast1-docker.pkg.dev/sleepr-468102/reservations/production
-        name: reservation
+        name: reservations
         env:
           - name: MONGODB_URI
             valueFrom:
@@ -26,7 +26,7 @@ spec:
           - name: PORT
             value: '3004'
           - name: AUTH_HOST
-            value: auth
+            value: auth-tcp
           - name: AUTH_PORT
             value: '3002'
           - name: PAYMENTS_HOST

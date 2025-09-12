@@ -15,7 +15,9 @@ export class NotificationsService {
         clientId: configService.get("GOOGLE_OAUTH_CLIENT_ID"),
         clientSecret: configService.get("GOOGLE_OAUTH_CLIENT_SECRET"),
         refreshToken: configService.get("GOOGLE_OAUTH_REFRESH_TOKEN"),
-      }
+      },
+      connectionTimeout: 15000, // 15s
+      greetingTimeout: 15000,   // 15s
 
     })
 
