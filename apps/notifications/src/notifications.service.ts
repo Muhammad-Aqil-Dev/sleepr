@@ -18,6 +18,8 @@ export class NotificationsService {
       },
       connectionTimeout: 60000, // 60s
       greetingTimeout: 60000,   // 60s
+      family: 4  // force IPv4
+
 
     })
 
