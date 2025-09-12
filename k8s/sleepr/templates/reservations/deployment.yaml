@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: reservation
+  name: reservation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reservation
+  template:
+    metadata:
+      labels:
+        app: reservation
+    spec:
+      containers:
+      - image: asia-southeast1-docker.pkg.dev/sleepr-468102/reservations/production
+        name: reservation
+        env:
+          - name: MONGODB_URI
+            valueFrom:
+              secretKeyRef:
+                name: mongodb
+                key: connectionString
