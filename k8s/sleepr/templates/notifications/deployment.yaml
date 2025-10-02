@@ -4,6 +4,7 @@ metadata:
   labels:
     app: notifications
   name: notifications
+
 spec:
   replicas: 1
   selector:
@@ -17,6 +18,8 @@ spec:
       containers:
       - image: asia-southeast1-docker.pkg.dev/sleepr-468102/notifications/production
         name: notifications
+        imagePullPolicy: Always 
+
         env:
           - name: PORT
             value: '3000'
