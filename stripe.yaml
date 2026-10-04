@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  apiKey: c2tfdGVzdF81MVJyQzBlOWQ3NTNMNHlSdW02cWhOa25vOXJ6b3ZUTEFXQ1c2MDlERE1VNElCSmZ0OWZPRkVrallLQTRuZ0U3V2E4Y2E2RVZHOHdzSDBnb3NURlRTOEluQjAwRVZ2bDVQa3I=
+kind: Secret
+metadata:
+  creationTimestamp: "2025-09-12T04:14:53Z"
+  name: stripe
+  namespace: default
+  resourceVersion: "222181"
+  uid: 21a17d60-7549-4d80-84a1-36111c471c3d
+type: Opaque

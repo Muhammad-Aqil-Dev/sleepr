@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  connectionString: bW9uZ29kYitzcnY6Ly9hcWlsOmFxaWwxMjM0QGNsdXN0ZXIwLjYwaXN4dzYubW9uZ29kYi5uZXQvc2xlZXByP3JldHJ5V3JpdGVzPXRydWU=
+kind: Secret
+metadata:
+  creationTimestamp: "2025-09-12T02:15:16Z"
+  name: mongodb
+  namespace: default
+  resourceVersion: "211304"
+  uid: b26700b9-4e66-4370-b96e-339615e86cfa
+type: Opaque

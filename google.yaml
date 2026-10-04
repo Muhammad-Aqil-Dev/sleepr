@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  clientSecret: R09DU1BYLVBZQjhzcktyNGVXRXIxOHlVY3c0WVB2aHkySGs=
+  refreshToken: YOUR_GOOGLE_REFRESH_TOKEN
+kind: Secret
+metadata:
+  creationTimestamp: "2025-09-12T03:02:13Z"
+  name: google
+  namespace: default
+  resourceVersion: "215852"
+  uid: b2ddb026-2a63-4cf1-b7d9-2f7ac86b8e90
+type: Opaque
